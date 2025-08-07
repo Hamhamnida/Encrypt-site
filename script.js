@@ -260,7 +260,7 @@ class EncryptedMessage {
     }
     randomizeText() {
         let randomizeCount = 0;
-        const maxRandomizations = 100;
+        const maxRandomizations = 10;
         
         const randomizeInterval = setInterval(() => {
             if (randomizeCount >= maxRandomizations) {
@@ -276,7 +276,7 @@ class EncryptedMessage {
         setTimeout(() => {
             clearInterval(randomizeInterval);
             this.startDecryption();
-        }, 1000);
+        }, 200);
     }
     startDecryption() {
         let isArtRevealed = false;
@@ -314,7 +314,7 @@ class EncryptedMessage {
                 this.menuElement.textContent = newText;
             }
             if (currentText !== this.originalText) {
-                setTimeout(decryptChar, isArtRevealed ? 8 : 2);
+                setTimeout(decryptChar, isArtRevealed ? 0 : 1);
             }
         };
         decryptChar();
